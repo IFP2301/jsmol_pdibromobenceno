@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Visor JSmol - p-dibromobenceno</title>
+  <title>Visor JSmol - p-dibromobenceno en formato bolas y palos</title>
   <!-- Se carga la librería JSmol desde un CDN -->
   <script type="text/javascript" src="https://chemapps.stolaf.edu/jmol/jsmol/JSmol.min.js"></script>
 </head>
 <body>
-  <!-- Contenedor donde se mostrará el visor -->
+  <!-- Contenedor para el visor interactivo -->
   <div id="jsmolContainer" style="width: 600px; height: 600px; margin: auto;"></div>
   <script type="text/javascript">
     var Info = {
@@ -15,10 +15,12 @@
       height: 600,
       debug: false,
       use: "HTML5",
-      // Ruta a los archivos j2s necesarios para JSmol (se usa el CDN)
+      // Ruta a los archivos j2s necesarios para JSmol (usando el CDN)
       j2sPath: "https://chemapps.stolaf.edu/jmol/jsmol/j2s", 
-      // Se carga el archivo PDB; asegúrate de que se llame "pdibromobenceno.pdb" y esté en el mismo directorio
-      script: "load 'pdibromobenceno.pdb';",
+      // Carga el pdibromobenceno .mol y configura la visualización en formato bolas y palos:
+      // "spacefill 20%;" muestra los átomos como esferas (bolas) al 23% de su radio,
+      // "wireframe 0.15;" dibuja las conexiones (palos) con un grosor de 0.15.
+      script: "load 'pdibromobenceno.mol'; select all; spacefill 23%; wireframe 0.15;",
       disableJ2SLoadMonitor: true,
       disableInitialConsole: true
     };
